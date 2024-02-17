@@ -33,6 +33,7 @@ function App() {
       }
       const data = await response.json();
       setTuringData(data); //guardamos la data de la maquina
+      console.log(data);
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -49,6 +50,7 @@ function App() {
       }
       const data = await response.json();
       setMachineData(data);
+      console.log(data);
     } catch (error) {
       console.log(error.message);
     } finally {

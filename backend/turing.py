@@ -45,8 +45,11 @@ class TuringMachine:
             action = self.transitions[current_state][current_symbol]
 
             # Actualizar el símbolo en la cinta y el estado actual
-            self.tape[tape_position] = action[1]
+            self.tape[tape_position] = action[1]  
             current_state = action[0]
+
+            if(current_symbol == self.blank_symbol):
+                self.tape.append(self.blank_symbol)
 
             # Actualizar la posición de la cinta
             if action[2] == "R": ## Si la acción es R, la cinta se mueve a la derecha
@@ -54,23 +57,24 @@ class TuringMachine:
             elif action[2] == "L":
                 tape_position -= 1
 
+
             # Agregar el paso actual a la lista de pasos de la simulación
             tape_view = ''.join(self.tape)
             step_info = f"State: {current_state}, Tape: {tape_view}, Head Position: {tape_position}"
             derivation_process.append(step_info)
 
-        is_accepted = current_state in self.final_states  # La cadena es aceptada si el estado actual es final
+        is_accepted = current_state in self.final_states  # La cadena es aceptada si el estado actual es fina   l
         return derivation_process, is_accepted
 
 
 if __name__ == "__main__":
     # TEST
-    with open("turing.json") as config_file:
+    with open("backend/turing.json") as config_file:
         config = json.load(config_file)
 
     turing_machine = TuringMachine(**config)  # Leer el archivo json y crear una instancia de la máquina de Turing
 
-    input_string = "10000100"
+    input_string = "111"
     simulation_result, was_accepted = turing_machine.simulate(input_string)
 
     print(was_accepted)
