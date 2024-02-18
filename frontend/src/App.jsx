@@ -28,7 +28,7 @@ function App() {
     setLoading(true);
     try {
 
-      const response = await fetch(`https://p1-aa2-z5w5.onrender.com/turingMachine/${string}`); //hacemos el fetch a la api con la cadena
+      const response = await fetch(`https://p1-aa2.onrender.com/turingMachine/${string}`); //hacemos el fetch a la api con la cadena
       //const response = await fetch(`https://tc-proyecto-3-markalbrand56.koyeb.app/turingMachine/${string}`); //hacemos el fetch a la api con la cadena
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -47,7 +47,7 @@ function App() {
     setLoading(true);
     try {
 
-      const response = await fetch(`https://p1-aa2-z5w5.onrender.com/json`); //hacemos el fetch a la api para mostrar la maquina
+      const response = await fetch(`https://p1-aa2.onrender.com/json`); //hacemos el fetch a la api para mostrar la maquina
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
