@@ -35,7 +35,7 @@ function App() {
       }
       const data = await response.json();
       setTuringData(data); //guardamos la data de la maquina
-      console.log(data);
+      console.log("Turing data: ", data);
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -54,7 +54,7 @@ function App() {
       }
       const data = await response.json();
       setMachineData(data);
-      console.log(data);
+      console.log("Machine data: ", data);
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -83,8 +83,7 @@ function App() {
   return (
     <div className="flex flex-col w-screen h-screen justify-center items-center bg-gray-100">
       <div className='flex flex-col w-3/4 justify-start items-center'>
-        <img src="/images/logo.png" alt="Logo-1" border="0" className='w-1/2 h-1/2 object-cover'/>
-        <span className='text-2xl font-bold text-black'>Cantidad par de ceros</span>
+        <span className='text-2xl font-bold text-black py-4'>Fibonacci Turing machine</span>
       </div>
       {!showMachine && !showAnswer && (<form className='flex flex-col w-1/2 h-1/2 justify-start items-center bg-gray-100'>
             <label htmlFor="tape" className='text-black'>Cadena</label>
@@ -109,7 +108,7 @@ function App() {
       )}
       {
         showAnswer && !showMachine && (
-          <div className='machine flex flex-col w-1/2 h-1/2 justify-center items-center bg-blue-600 rounded-md'>
+          <div className='machine flex flex-col h-1/2 justify-center items-center bg-blue-600 rounded-md min-w-[600px] px-4'>
           {loading && <p>Cargando...</p>}
           {turingData && <TuringTape steps={turingData.resultado} result={turingData.aceptado} />}
           </div>

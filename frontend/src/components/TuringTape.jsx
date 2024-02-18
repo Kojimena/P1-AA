@@ -7,25 +7,11 @@ const TuringTape = ({ steps, result }) => {
   const [tapeContent, setTapeContent] = useState([]); //guarda el contenido de la cinta
   const [headPosition, setHeadPosition] = useState(0); //guarda la posicion de la cabeza
 
-  //cada vez que cambia el paso actual
-  useEffect(() => {
-    if (steps && steps.length > 0 && currentStep < steps.length) { //si hay pasos y el paso actual es menor a la cantidad de pasos
-      const step = steps[currentStep]; //guardamos el paso actual
-      //ej Paso actual: State: qAccept, Tape: 100001_, Head Position: 6
-
-      // extraemos la información de la cinta y la posicion de la cabeza
-      const { tape, position } = parseStep(step);
-      setTapeContent(tape);
-
-      setHeadPosition(position);
-      console.log("tape",tape)
-      console.log("position",position)
-    }
-  }, [currentStep, steps]);
 
   const parseStep = (step) => {
     // Logica para extraer la información de la cinta, la posicion de la cabeza y el estado
-    const tapeMatch = step.match(/Tape: ([0-1_]+)/);
+        
+    const tapeMatch = step.match(/Tape: ([0-z]+)/);
     const positionMatch = step.match(/Head Position: (\d+)/);
     const stateMatch = step.match(/State: (\w+)/);
     return {
@@ -34,6 +20,22 @@ const TuringTape = ({ steps, result }) => {
       state: stateMatch ? stateMatch[1] : ''
     };
   };
+
+    //cada vez que cambia el paso actual
+    useEffect(() => {
+      if (steps && steps.length > 0 && currentStep < steps.length) { //si hay pasos y el paso actual es menor a la cantidad de pasos
+        const step = steps[currentStep]; //guardamos el paso actual
+        //ej Paso actual: State: qAccept, Tape: 100001_, Head Position: 6
+        console.log("step",step)
+        // extraemos la información de la cinta y la posicion de la cabeza
+        const { tape, position } = parseStep(step);
+        setTapeContent(tape);
+  
+        setHeadPosition(position);
+        console.log("tape",tape)
+        console.log("position",position)
+      }
+    }, [currentStep, steps]);
 
   const onNextStep = () => {
     if (currentStep < steps.length - 1) { 
