@@ -112,6 +112,7 @@ if __name__ == "__main__":
         config = json.load(config_file)
 
     turing_machine = TuringMachine(**config)  # Leer el archivo json y crear una instancia de la máquina de Turing
+    plot_execution_times()
 
     if input("Desea realizar prueba del millon?(Si, No) ") == "Si":
         getMillionTest(turing_machine)
