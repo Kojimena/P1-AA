@@ -1,4 +1,6 @@
 import json
+import time
+import matplotlib.pyplot as plt
 
 
 class TuringMachine:
@@ -67,6 +69,43 @@ class TuringMachine:
         return derivation_process, is_accepted
 
 
+def getMillionTest(turingMachine):
+    print( "Probando un millon de veces")
+    tiempos = {}
+    input_string = "1"  
+    while len(input_string) <= 20:
+        print(f"n={len(input_string)}")
+        start = time.time()
+        turingMachine.simulate(input_string)
+        end = time.time()
+        tiempos[len(input_string)]= end - start
+        
+        with open('tiemposDeEjecucion.json', 'w') as json_file:
+            json.dump(tiempos, json_file, indent=4)
+        
+        input_string +="1" 
+    print("Terminado")
+    
+def plot_execution_times():
+    # Lee los tiempos de ejecución del archivo JSON
+    with open('tiemposDeEjecucion.json', 'r') as file:
+        execution_times = json.load(file)
+
+    # Prepara los datos para la gráfica
+    lengths = list(execution_times.keys())
+    times = [execution_times[key] for key in lengths]
+
+    # Graficando
+    plt.figure(figsize=(10, 6))
+    plt.plot(lengths, times, marker='o', linestyle='-')
+    plt.title('Tamaño de la cadena de entrada vs Tiempo de ejecución')
+    plt.xlabel('Longitud de la cadena de entrada')
+    plt.ylabel('Tiempo de ejecución (segundos)')
+    plt.grid(True)
+    plt.savefig("plotExecutionTimes.png")
+    plt.show()
+
+
 if __name__ == "__main__":
     # TEST
     with open("backend/turing.json") as config_file:
@@ -74,9 +113,16 @@ if __name__ == "__main__":
 
     turing_machine = TuringMachine(**config)  # Leer el archivo json y crear una instancia de la máquina de Turing
 
-    input_string = "111"
-    simulation_result, was_accepted = turing_machine.simulate(input_string)
+    if input("Desea realizar prueba del millon?(Si, No) ") == "Si":
+        getMillionTest(turing_machine)
+    else:
+        print("Expresion: 111")
+        input_string = "111"
+        while len(input_string) < 10:
+            simulation_result, was_accepted = turing_machine.simulate(input_string)
 
-    print(was_accepted)
-    for step in simulation_result:
-        print(step)
+        print(was_accepted)
+        for step in simulation_result:
+            print(step)
+    
+    plot_execution_times()
