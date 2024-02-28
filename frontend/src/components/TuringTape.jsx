@@ -48,10 +48,9 @@ const TuringTape = ({ steps, result }) => {
   }
 
   return (
-    <div className="turing-tape flex flex-col">
-      <div className="tape flex flex-col w-full justify-center items-center">
-        {console.log("tapeContent",tapeContent)}
-        <span className='font-bold text-2xl p-4 text-white'>Estado: {parseStep(steps[currentStep]).state}</span>
+    <div className="turing-tape flex flex-col overflow-auto">
+      <div className="tape flex flex-col  max-w-3xl">
+        <span className='font-bold text-2xl p-4 text-blue-200'>Estado: {parseStep(steps[currentStep]).state}</span>
         <div className="flex">
         {tapeContent.map((symbol, index) => (
           <div key={index} className={`tape-cell ${index === headPosition ? 'head' : ''}`}> 
