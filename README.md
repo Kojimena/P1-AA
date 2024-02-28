@@ -36,7 +36,10 @@ Análisis y diseños de algoritmos - Sección 30
  - Los componentes de la Máquina de Turing se deben configurar a través de un archivo
  [Ir al archivo](https://github.com/Kojimena/P1-AA/blob/main/backend/turing.json)
  - Debe permitir ingresar la cadena de entrada (según convención del punto 2).
+    - La cadena de entrada debe ser una sucesión de ``1s`` por ejemplo, al referirnos al número ``5`` la cadena sería ``11111``
     - Las cadenas pueden probarse en el siguiente enlace [Turing machine](https://resonant-gelato-08c783.netlify.app/)
+
+### Simulación en línea
  - Mostrar el listado de las configuraciones de la simulación, donde se indique el estado, la posición de la cabeza y los elementos de la cinta.
     - Al ingresar la cadena en [Turing machine](https://resonant-gelato-08c783.netlify.app/) y hacer click en "Run" se podrá observar la simulación de la misma en donde se indicará el estado posición de la cabeza y elementos de la cinta. Esta también puede ser probada en el archivo ``turing.py``. 
 ### Análisis empírico.
