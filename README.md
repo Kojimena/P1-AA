@@ -1,4 +1,3 @@
-# P1-AA
 ## Proyecto 1 - Notación O en el tiempo de ejecución de un algoritmo (Sucesión de Fibonacci)
 
 Universidad del Valle de Guatemala   
