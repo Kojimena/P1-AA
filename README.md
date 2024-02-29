@@ -97,9 +97,9 @@ Por lo que la sucesión fibonacci es exponencial debido a que al calcularla de m
  - Listado de entradas de prueba usadas para medir tiempos de ejecución de la máquina.
     - La lista puede ser consultada acá: [Lista de entradas](https://github.com/Kojimena/P1-AA/blob/main/tiemposDeEjecucion.json)
  - Diagrama de dispersión que muestre los tiempos de ejecución de la máquina en función de su tamaño de entrada.
-![Diagrama de dispersión](dispersion.jpeg)
+![Diagrama de dispersión](https://docs.google.com/spreadsheets/d/e/2PACX-1vQH2Ti4y0I9EzXA_9ywUTNbpgQFwgAmBmJPkRxSFdUW_Yoz56MiiSJPJWkL9tkHtn5IodFjzrKJHF5A/pubchart?oid=240596747&format=interactive)
  - Regresión polinomial o exponencial que se ajuste mejor a los datos.
-![Regresión exponencial](plotExecutionTimes.png)
+![Grafico de 2^n](https://docs.google.com/spreadsheets/d/e/2PACX-1vQH2Ti4y0I9EzXA_9ywUTNbpgQFwgAmBmJPkRxSFdUW_Yoz56MiiSJPJWkL9tkHtn5IodFjzrKJHF5A/pubchart?oid=934101615&format=interactive)
 
 ### Referencias
 
