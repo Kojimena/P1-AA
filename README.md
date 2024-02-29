@@ -27,7 +27,7 @@ Análisis y diseños de algoritmos - Sección 30
     - Un simbolo blank "b"
  [Referencia de la máquina de Fibonacci](https://www.researchgate.net/publication/1958918_Computing_Fibonacci_numbers_on_a_Turing_Machine)
 ### Diagrama de la máquina de Turing que calcula la sucesión de Fibonacci.
-![image](https://github.com/Kojimena/P1-AA/assets/85262580/11be1cee-c267-441b-b77d-2ca8ea06034c)
+![image](https://github.com/Kojimena/P1-AA/assets/85262580/ceda9720-288a-43ec-8f21-1423fb548c49)
 
 El siguiente diagrama fue realizado en la página [turingmachine.io](https://turingmachine.io/), la cual lee archivos ``.yaml`` y así poder crear diagramas de máquinas de Turing. Se debe recalcar que su sintaxis no acepta movimientos N o "No Move" por lo que se realizan acciones que utlizan los estados de formato 'q000N', los cuales son estados de transición donde '000' se reemplaza por el número de estado al que se quiere llegar. En cada uno de estos estados, se tiene la misma premisa: cuando se necesite pasar por uno de ellos, habrá un movimiento previo a la derecha. Los estados aceptarán cualquier elemento que esté en la cinta y lo mantendrá para después moverse a la izquierda y cambiar al estado que se quiera llegar luego del "No Move" simulado. Por ejemplo:
 
