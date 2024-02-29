@@ -69,26 +69,26 @@ class TuringMachine:
         return derivation_process, is_accepted
 
 
-def getMillionTest(turingMachine):
+def getMillionTest(turingMachine, count):
     print( "Probando un millon de veces")
     tiempos = {}
     input_string = "1"  
-    while len(input_string) <= 20:
+    while len(input_string) <= 14:
         print(f"n={len(input_string)}")
         start = time.time()
         turingMachine.simulate(input_string)
         end = time.time()
         tiempos[len(input_string)]= end - start
         
-        with open('tiemposDeEjecucion.json', 'w') as json_file:
+        with open(f'tiemposDeEjecucion{count}.json', 'w') as json_file:
             json.dump(tiempos, json_file, indent=4)
         
         input_string +="1" 
     print("Terminado")
     
-def plot_execution_times():
+def plot_execution_times(count):
     # Lee los tiempos de ejecución del archivo JSON
-    with open('tiemposDeEjecucion.json', 'r') as file:
+    with open(f'tiemposDeEjecucion{count}.json', 'r') as file:
         execution_times = json.load(file)
 
     # Prepara los datos para la gráfica
@@ -102,7 +102,7 @@ def plot_execution_times():
     plt.xlabel('Longitud de la cadena de entrada')
     plt.ylabel('Tiempo de ejecución (segundos)')
     plt.grid(True)
-    plt.savefig("plotExecutionTimes.png")
+    plt.savefig(f"plotExecutionTimes{count}.png")
     plt.show()
 
 
@@ -112,10 +112,11 @@ if __name__ == "__main__":
         config = json.load(config_file)
 
     turing_machine = TuringMachine(**config)  # Leer el archivo json y crear una instancia de la máquina de Turing
-    plot_execution_times()
 
     if input("Desea realizar prueba del millon?(Si, No) ") == "Si":
-        getMillionTest(turing_machine)
+        for i in range(10):
+            getMillionTest(turing_machine, i)
+            plot_execution_times(i)
     else:
         print("Expresion: 111")
         input_string = "111"
@@ -125,5 +126,4 @@ if __name__ == "__main__":
         print(was_accepted)
         for step in simulation_result:
             print(step)
-    
-    plot_execution_times()
+        plot_execution_times(input_string)
