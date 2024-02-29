@@ -59,12 +59,13 @@ En este caso particular, el estado q108 no debería moverse cuando tenga a 'S' e
     - Al ingresar la cadena en [Turing machine](https://resonant-gelato-08c783.netlify.app/) y hacer click en "Run" se podrá observar la simulación de la misma en donde se indicará el estado posición de la cabeza y elementos de la cinta. Esta también puede ser probada en el archivo ``turing.py``. 
 ### Análisis empírico.
 <div style="text-align: justify">
-    La sucesión de Fibonacci consiste en una serie infinita compuesta de números enteros construida sobre la premisa de iniciar con los números 0 y 1, y sucesivamente, se van sumando los dos últimos números para generar el siguiente. A manera de representación, la sucesión se vería de la siguiente manera:
+    La sucesión de Fibonacci consiste en una serie infinita compuesta de números enteros construida sobre la premisa de iniciar con los números 0 y 1, y sucesivamente, se van sumando los dos últimos números para generar el siguiente (Trejos, 2015). A manera de representación, la sucesión se vería de la siguiente manera:
 </div>
 <br>
 <center>
 0 - 1 - 1 - 2 - 3 - 5 - 8 - 13 - 21 - 34 - 55 - ...
 </center>
+<br>
 <br>
 <div style="text-align: justify">
     Al determinar los tiempos de ejecución que genera este algoritmo de sucesión numérica, se generó un diagrama de dispersión y la regresión polinomial, con el que se identificó que el comportamiento de la sucesión es exponencial. Esto debido a que en la implementación realizada no se cuenta con memorización, ya que los resultados calculados no se almacenan en memoria para ser utilizados posteriormente. 
@@ -99,3 +100,8 @@ Por lo que la sucesión fibonacci es exponencial debido a que al calcularla de m
 ![Diagrama de dispersión](dispersion.jpeg)
  - Regresión polinomial o exponencial que se ajuste mejor a los datos.
 ![Regresión exponencial](plotExecutionTimes.png)
+
+### Referencias
+
+- Trejos, O. (2015). Algoritmo Recursivo diferente para hallar elementos
+de la serie de Fibonacci usando Programación Funcional. AVANCES Investigación en Ingeniería Vol. 11. Recuperado de: https://acortar.link/jn0BbX
