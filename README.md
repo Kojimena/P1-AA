@@ -27,7 +27,22 @@ Análisis y diseños de algoritmos - Sección 30
     - Un simbolo blank "b"
  [Referencia de la máquina de Fibonacci](https://www.researchgate.net/publication/1958918_Computing_Fibonacci_numbers_on_a_Turing_Machine)
 ### Diagrama de la máquina de Turing que calcula la sucesión de Fibonacci.
+![image](https://github.com/Kojimena/P1-AA/assets/85262580/11be1cee-c267-441b-b77d-2ca8ea06034c)
 
+El siguiente diagrama fue realizado en la página [turingmachine.io](https://turingmachine.io/), la cual lee archivos ``.yaml`` y así poder crear diagramas de máquinas de Turing. Se debe recalcar que su sintaxis no acepta movimientos N o "No Move" por lo que se realizan acciones que utlizan los estados de formato 'q000N', los cuales son estados de transición donde '000' se reemplaza por el número de estado al que se quiere llegar. En cada uno de estos estados, se tiene la misma premisa: cuando se necesite pasar por uno de ellos, habrá un movimiento previo a la derecha. Los estados aceptarán cualquier elemento que esté en la cinta y lo mantendrá para después moverse a la izquierda y cambiar al estado que se quiera llegar luego del "No Move" simulado. Por ejemplo:
+
+    q108:
+        S: {write: S, R: q109N}
+        1: {write: 1, L}
+    q109N:
+        S: {write: S, L: q109}
+        1: {write: 1, L: q109}
+        b: {write: b, L: q109}
+        x: {write: x, L: q109}
+
+En este caso particular, el estado q108 no debería moverse cuando tenga a 'S' en la cinta y deba cambiar al estado q109. Debido a la ausencia del elemento lógico N dentro de la sintaxis de turingmachine.io, lo que se hace es mover a q108 a la derecha y cambiar al estado q109N, donde se acepta cualquier elemento que esté a la derecha en la cinta. Este mismo elemento se sobreescribe y luego el estado mueve a la izquierda cambiando, ahora sí, al estado q109.
+
+[Ver diagrama a detalle, junto con la simulación de la cadena '11'](https://turingmachine.io/?import-gist=b2cda674dea326f5c0252ef38b5c741c)
 
 ### Archivo con los componentes de la máquina de Turing del punto 2.
 - El archivo se encuentra en "turing.json"
