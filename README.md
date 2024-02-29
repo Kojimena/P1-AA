@@ -95,11 +95,14 @@ Con el árbol, a través de inducción:
 Por lo que la sucesión fibonacci es exponencial debido a que al calcularla de manera recursiva sin memoización esta crece exponencialmente con n.
 
  - Listado de entradas de prueba usadas para medir tiempos de ejecución de la máquina.
-    - La lista puede ser consultada acá: [Lista de entradas](https://github.com/Kojimena/P1-AA/blob/main/tiemposDeEjecucion.json)
- - Diagrama de dispersión que muestre los tiempos de ejecución de la máquina en función de su tamaño de entrada.
+    - La lista puede ser consultada acá: [Lista de entradas](https://docs.google.com/spreadsheets/d/1INOLNnAtr3Q88ed102KgeiYqSA2B5-xYOxnM2roUPis/edit?usp=sharing)
+    - Se realizaron un total de 11 pruebas con cadenas representando los numero de 1 a 14 para la función fibonacci. Se decidió parar en 14 ya que surgieron errores de memoria por parte del programa al ingresar cadenas de 15 o más. Además consideramos que n <= 14 representa de manera precisa y correcta la complejidad de nuestro programa.
+ - Diagrama de dispersión que muestre los tiempos de ejecución de la máquina en función de su tamaño de entrada con una regresión exponencial.
 ![Diagrama de dispersión](https://docs.google.com/spreadsheets/d/e/2PACX-1vQH2Ti4y0I9EzXA_9ywUTNbpgQFwgAmBmJPkRxSFdUW_Yoz56MiiSJPJWkL9tkHtn5IodFjzrKJHF5A/pubchart?oid=240596747&format=image)
- - Regresión polinomial o exponencial que se ajuste mejor a los datos.
+ - Grafico de la función de 2^n
 ![Grafico de 2^n](https://docs.google.com/spreadsheets/d/e/2PACX-1vQH2Ti4y0I9EzXA_9ywUTNbpgQFwgAmBmJPkRxSFdUW_Yoz56MiiSJPJWkL9tkHtn5IodFjzrKJHF5A/pubchart?oid=934101615&format=image)
+
+Mediante el análisis de las regresiones exponenciales obtenidas para cada prueba y la comparación con el modelo de 2^n, podemos concluir que nuestro programa se aproxima con alta exactitud al comportamiento obtenido mediante inducción.
 
 ### Referencias
 
